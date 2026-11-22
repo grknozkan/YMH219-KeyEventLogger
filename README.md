@@ -56,6 +56,8 @@ dotnet run --project YMH219-KeyEventLogger
 | **Temizle** | Ekrandaki tüm kayıtları siler (onay diyaloğu ile) |
 | **Kaydet (.txt)** | Kayıtları zaman damgalı dosyaya aktarır |
 | **İstatistik Penceresi** | En sık kullanılan 10 tuş ve yüzde dağılımı |
+| **Olay Tipi Filtresi** | KeyDown / KeyUp / KeyPress checkbox ile ayrı ayrı filtre |
+| **Maksimum Kayıt Sınırı** | 5000 kayıt dolunca en eski otomatik silinir (bellek dostu) |
 | **Modifier Desteği** | Ctrl, Alt, Shift kombinasyonları ayrıca gösterilir |
 | **Milisaniye Zaman Damgası** | Her olay `HH:mm:ss.fff` hassasiyetinde kaydedilir |
 
