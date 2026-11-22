@@ -103,6 +103,4 @@ YMH219-KeyEventLogger/
 - [ ] Anlık tuş frekans grafiği
 - [ ] Farklı klavye düzeni desteği
 
----
 
-*YMH 219 Nesne Tabanlı Programlama — Ek Uygulama Ödevi Föyü kapsamında geliştirilmiştir.*
