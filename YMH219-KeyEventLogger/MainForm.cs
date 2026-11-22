@@ -24,6 +24,11 @@ namespace KeyEventLogger
         private StatusStrip statusStrip = null!;
         private ToolStripStatusLabel tsslInfo = null!;
 
+        // Filtre seçenekleri
+        private CheckBox chkKeyDown = null!;
+        private CheckBox chkKeyUp = null!;
+        private CheckBox chkKeyPress = null!;
+
         public MainForm()
         {
             InitializeComponent();
@@ -104,6 +109,20 @@ namespace KeyEventLogger
 
             pnlButtons.Controls.AddRange(
                 new Control[] { btnStart, btnStop, btnClear, btnSave, btnStats });
+
+            // ---- Filtre CheckBox'ları ----
+            chkKeyDown = new CheckBox { Text = "KeyDown", Checked = true,
+                ForeColor = Color.LightGreen, BackColor = Color.Transparent,
+                Width = 120, Margin = new Padding(0, 8, 0, 0) };
+            chkKeyUp = new CheckBox { Text = "KeyUp", Checked = true,
+                ForeColor = Color.Orange, BackColor = Color.Transparent,
+                Width = 120, Margin = new Padding(0, 2, 0, 0) };
+            chkKeyPress = new CheckBox { Text = "KeyPress", Checked = true,
+                ForeColor = Color.SkyBlue, BackColor = Color.Transparent,
+                Width = 120, Margin = new Padding(0, 2, 0, 0) };
+
+            pnlButtons.Controls.AddRange(
+                new Control[] { chkKeyDown, chkKeyUp, chkKeyPress });
 
             // ---- Log Alanı ----
             rtbLog = new RichTextBox
@@ -309,6 +328,7 @@ namespace KeyEventLogger
         // ========================================================
         private void MainForm_KeyDown(object? sender, KeyEventArgs e)
         {
+            if (!chkKeyDown.Checked) return;
             var entry = new KeyLogEntry(
                 e.KeyCode.ToString(), "KeyDown", e.KeyCode,
                 e.Control, e.Alt, e.Shift);
@@ -317,6 +337,7 @@ namespace KeyEventLogger
 
         private void MainForm_KeyUp(object? sender, KeyEventArgs e)
         {
+            if (!chkKeyUp.Checked) return;
             var entry = new KeyLogEntry(
                 e.KeyCode.ToString(), "KeyUp", e.KeyCode,
                 e.Control, e.Alt, e.Shift);
@@ -325,6 +346,7 @@ namespace KeyEventLogger
 
         private void MainForm_KeyPress(object? sender, KeyPressEventArgs e)
         {
+            if (!chkKeyPress.Checked) return;
             if (e.KeyChar == '\0') return; // Özel karakterleri atla
             string keyName = char.IsControl(e.KeyChar)
                 ? $"[Char:{(int)e.KeyChar}]"
