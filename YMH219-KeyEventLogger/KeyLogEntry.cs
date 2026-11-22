@@ -51,7 +51,8 @@ namespace KeyEventLogger
         /// </summary>
         public override string ToString()
         {
-            return $"[{Timestamp:HH:mm:ss.fff}]  {EventType,-9}  {ModifierText}{KeyName}";
+            string modText = string.IsNullOrEmpty(ModifierText) ? "" : $"[{ModifierText}]";
+            return $"[{Timestamp:HH:mm:ss.fff}]  {EventType,-9}  {modText}{KeyName}";
         }
 
         /// <summary>
