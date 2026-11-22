@@ -252,6 +252,9 @@ namespace KeyEventLogger
             _logger.StartLogging();
             btnStart.Enabled = false;
             btnStop.Enabled  = true;
+            chkKeyDown.Enabled = false;
+            chkKeyUp.Enabled   = false;
+            chkKeyPress.Enabled = false;
             UpdateIndicator(true);
             tsslInfo.Text = "Kayıt başlatıldı. Tuşlara basın...";
             this.Focus(); // Klavye odağının formda olduğundan emin ol
@@ -262,6 +265,9 @@ namespace KeyEventLogger
             _logger.StopLogging();
             btnStart.Enabled = true;
             btnStop.Enabled  = false;
+            chkKeyDown.Enabled = true;
+            chkKeyUp.Enabled   = true;
+            chkKeyPress.Enabled = true;
             UpdateIndicator(false);
             tsslInfo.Text = $"Kayıt durduruldu. Toplam tuş basımı: {_logger.TotalKeyPresses}";
         }
