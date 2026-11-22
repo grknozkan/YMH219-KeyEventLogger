@@ -15,6 +15,10 @@ namespace KeyEventLogger
         private readonly List<KeyLogEntry> _entries = new();
         private bool _isLogging = false;
 
+        // ---- Ayarlar ----
+        /// <summary>Listedeki maksimum kayıt sayısı (0 = sınırsız).</summary>
+        public int MaxEntries { get; set; } = 5000;
+
         // ---- Özellikler ----
         public bool IsLogging => _isLogging;
         public int TotalKeyPresses => _entries.Count(e => e.EventType == "KeyDown");
@@ -45,6 +49,9 @@ namespace KeyEventLogger
         public void RecordEntry(KeyLogEntry entry)
         {
             if (!_isLogging) return;
+            // Maksimum kayıt sınırı aşıldıysa en eskiyi sil
+            if (MaxEntries > 0 && _entries.Count >= MaxEntries)
+                _entries.RemoveAt(0);
             _entries.Add(entry);
             EntryAdded?.Invoke(this, entry);
         }
