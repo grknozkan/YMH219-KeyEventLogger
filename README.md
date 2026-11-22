@@ -103,4 +103,11 @@ YMH219-KeyEventLogger/
 - [ ] Anlık tuş frekans grafiği
 - [ ] Farklı klavye düzeni desteği
 
+---
 
+## Öğrenci Bilgileri
+
+- **Ad Soyad:** Gürkan Özkan
+- **Öğrenci No:** 250542023
+- **Ders:** Nesne Tabanlı Programlama — YMH 219
+- **Son Teslim Tarihi:** 30 Kasım 2026
