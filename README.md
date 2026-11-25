@@ -1,7 +1,8 @@
 # YMH219 — Key Event Logger
 
 > **Nesne Tabanlı Programlama (YMH 219) · Ek Uygulama Ödevi #2**  
-> Ortam: Visual Studio 2022 · C# · .NET 6 · Windows Forms
+> **Geliştirici:** Gürkan Özkan  
+> **Öğrenci No:** 250542023
 
 ---
 
